@@ -2,3 +2,11 @@
   font-family: sans-serif;
   text-align: center;
 }
+.Tab .button {
+  background-color: greenyellow;
+  border: solid 1px black;
+  padding: 0.5rem;
+}
+.Tab {
+  max-width: 15rem;
+}
