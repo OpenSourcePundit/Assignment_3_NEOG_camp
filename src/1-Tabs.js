@@ -1,5 +1,6 @@
 // Create a Tabs component in React with four city name tabs. On click of each tab show some content about that city.
 import { useState } from "react";
+import { React } from "react";
 
 export const Tab = () => {
   const cities = [
@@ -36,36 +37,29 @@ export const Tab = () => {
         "New York is composed of five boroughs – Brooklyn, the Bronx, Manhattan, Queens and Staten Island - is home to 8.4 million people who speak more than 200 languages, hail from every corner of the globe, and, together, are the heart and soul of the most dynamic city in the world."
     }
   ];
-  const [city, setCity] = useState();
-  const CityClickHandler = (city1) => {
-    setCity(city1);
-    const { name, population, country, language, description } = city;
-    console.log("clicked", city);
-    return (
-      <div>
-        <h4>hey hello {city.name}</h4>
-        <p>Shashank</p>
-      </div>
-    );
+  const [city, setCity] = useState([]);
+  const CityClickHandler = (city) => {
+    setCity(city);
   };
 
   return (
     <div className="Tab Main">
       <nav style={{ display: "flex", listStyle: "none" }}>
-        {cities.map((city2) => {
+        {cities.map((city) => {
           return (
             <li>
-              <button
-                className="button"
-                onClick={() => CityClickHandler(city2)}
-              >
+              <button className="button" onClick={() => CityClickHandler(city)}>
                 {" "}
-                {city2.name}
+                {city.name}
               </button>
             </li>
           );
         })}
       </nav>
+      <h3>{city.name}</h3>
+      <p>Population:{city.population}</p>
+      <p>Country: {city.country}</p>
+      <p>{city.description}</p>
     </div>
   );
 };
