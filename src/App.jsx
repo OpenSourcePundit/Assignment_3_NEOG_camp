@@ -3,6 +3,7 @@ import "./styles.css";
 import { Tab } from "./1-Tabs";
 import { GroceryList } from "./2-GroceryList";
 import { Card } from "./3-Card";
+import { SetBackground } from "./4-SetBackground";
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
       <GroceryList />
       <hr />
       <Card />
+      <hr />
+      <SetBackground />
       <hr />
     </div>
   );
