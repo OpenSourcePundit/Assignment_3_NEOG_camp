@@ -14,3 +14,6 @@
 .Tab .button:hover {
   background-color: yellow;
 }
+.SolutionScreen {
+  text-align: start;
+}
