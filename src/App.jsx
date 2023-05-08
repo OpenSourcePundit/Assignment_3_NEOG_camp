@@ -8,7 +8,9 @@ export default function App() {
     <div className="App">
       <h1>Assignment Three</h1>
       <Tab />
+      <hr />
       <GroceryList />
+      <hr />
     </div>
   );
 }

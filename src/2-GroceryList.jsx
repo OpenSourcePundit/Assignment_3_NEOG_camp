@@ -11,6 +11,17 @@ export const GroceryList = () => {
     if (itemName !== undefined) setList([...list, itemName]);
     console.log(list);
   };
+
+  const AddToCompleted = () => {
+    // console.log(event.target.value);
+    setCompletedList([...completedList, event.target.value]);
+    setList(
+      list.filter(obj => {
+        return obj !== event.target.value;
+      })
+    );
+  };
+
   return (
     <div className="GroceryList Main">
       <h2 className="GroceryList Heading">Grocery List</h2>
@@ -30,7 +41,8 @@ export const GroceryList = () => {
           {list.map(item => {
             return (
               <ol className="ListItem">
-                <input type="checkbox" value={item} />
+                <input type="checkbox" value={item} onChange={AddToCompleted} />
+
                 {item}
               </ol>
             );
@@ -38,6 +50,11 @@ export const GroceryList = () => {
         </ul>
 
         <h3 className="CompletedListHeading">Completed List</h3>
+        <ul className="CompletedList">
+          {completedList.map(item => {
+            return <ol className="CompletedListItem">{item}</ol>;
+          })}
+        </ul>
       </div>
     </div>
   );
