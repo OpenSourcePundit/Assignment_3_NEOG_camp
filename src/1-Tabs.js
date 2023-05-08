@@ -38,14 +38,14 @@ export const Tab = () => {
     }
   ];
   const [city, setCity] = useState([]);
-  const CityClickHandler = (city) => {
+  const CityClickHandler = city => {
     setCity(city);
   };
 
   return (
     <div className="Tab Main">
       <nav style={{ display: "flex", listStyle: "none" }}>
-        {cities.map((city) => {
+        {cities.map(city => {
           return (
             <li>
               <button className="button" onClick={() => CityClickHandler(city)}>
@@ -56,10 +56,12 @@ export const Tab = () => {
           );
         })}
       </nav>
-      <h3>{city.name}</h3>
-      <p>Population:{city.population}</p>
-      <p>Country: {city.country}</p>
-      <p>{city.description}</p>
+      <div style={{ display: city.length === 0 ? "none" : "" }}>
+        <h3>{city.name}</h3>
+        <p>Population:{city.population}</p>
+        <p>Country: {city.country}</p>
+        <p>{city.description}</p>
+      </div>
     </div>
   );
 };

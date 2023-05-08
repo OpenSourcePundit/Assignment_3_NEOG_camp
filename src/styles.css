@@ -9,6 +9,7 @@
 }
 .Tab {
   max-width: 15rem;
+  border: solid 2px grey;
 }
 .Tab .button:hover {
   background-color: yellow;
