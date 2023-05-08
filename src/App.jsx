@@ -2,6 +2,7 @@ import "./styles.css";
 
 import { Tab } from "./1-Tabs";
 import { GroceryList } from "./2-GroceryList";
+import { Card } from "./3-Card";
 
 export default function App() {
   return (
@@ -10,6 +11,8 @@ export default function App() {
       <Tab />
       <hr />
       <GroceryList />
+      <hr />
+      <Card />
       <hr />
     </div>
   );
