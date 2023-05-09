@@ -5,6 +5,7 @@ import { GroceryList } from "./2-GroceryList";
 import { Card } from "./3-Card";
 import { SetBackground } from "./4-SetBackground";
 import { ChatRoom } from "./5-ChatRoom/ChatRoom";
+import { Tweets } from "./6-Tweets/Tweets";
 
 export default function App() {
   return (
@@ -19,6 +20,8 @@ export default function App() {
       <SetBackground />
       <hr />
       <ChatRoom />
+      <hr />
+      <Tweets />
       <hr />
     </div>
   );
