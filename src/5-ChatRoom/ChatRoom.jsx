@@ -7,9 +7,13 @@ export const ChatRoom = () => {
     const response = await fakeFetch("https://example.com/api/userchats");
     if (response.status === 200) {
       setData(response.data);
+    } else if (response.status === 404) {
+      setData("users chat not found.");
     }
   };
-  // useEffect(getData);
+  useEffect(() => {
+    getData();
+  });
   return (
     <div className="ChatRoom Main">
       <h2 className="ChatRoom heading">Chat Room</h2>
