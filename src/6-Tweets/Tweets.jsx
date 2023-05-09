@@ -4,25 +4,53 @@ import { fakeFetch } from "../6-Tweets/fakeFetch";
 
 export const Tweets = () => {
   const [data, setData] = useState([]);
+  let data1 = [];
+  let showFilterBtn = true;
+  let showAllBtn = true;
 
   const getData = async () => {
     const response = await fakeFetch("https://example.com/api/usertweets");
     if (response.status === 200) {
-      setData(response.data);
+      data1 = response.data;
+      setData(data1);
     } else if (response.status === 404) {
       alert("Error:tweets not found.");
     } else alert("Error Occured.!!");
   };
+  // here when i used getData even after button click the rerendering was happening.
+  //again and again. Whn useEffect was removed.and data1 was initialised in useState declaration,
+  // then data worked normal.
   useEffect(() => {
     getData();
   });
 
+  const FilterTweets = () => {
+    showFilterBtn = false;
+    showAllBtn = true;
+    setData(data1.filter(tweet => tweet.likes > 50));
+  };
+  const ShowAllTweets = () => {
+    showFilterBtn = true;
+    showAllBtn = false;
+    setData(data1);
+  };
+
   return (
     <div className="Tweets Main">
-      <button className="Tweets filterBtn">
+      <button
+        className="Tweets filterBtn"
+        onClick={FilterTweets}
+        style={{ visibility: showFilterBtn === true ? "visible" : "hidden" }}
+      >
         Show Tweets with more than 50 Likes{" "}
       </button>
-      <button className="Tweets filterBtn">Show All Tweets </button>
+      <button
+        className="Tweets filterBtn"
+        onClick={ShowAllTweets}
+        style={{ visibility: showAllBtn === true ? "visible" : "hidden" }}
+      >
+        Show All Tweets{" "}
+      </button>
       <ul className="Tweets List">
         {data.map(tweet => {
           return (

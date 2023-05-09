@@ -1,4 +1,4 @@
-export const fakeFetch = (url) => {
+export const fakeFetch = url => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (url === "https://example.com/api/usertweets") {
@@ -44,6 +44,6 @@ export const fakeFetch = (url) => {
           message: "tweets not found."
         });
       }
-    }, 2000);
+    }, 5000);
   });
 };
